@@ -207,8 +207,13 @@
   <summary>Детали</summary>
 
   1. В файле locals.tf опишите в **одном** local-блоке имя каждой ВМ, используйте интерполяцию ${..} с НЕСКОЛЬКИМИ переменными по примеру из лекции.
-  2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
-  3. Примените изменения.
+     > ![image](https://github.com/user-attachments/assets/e6ee884b-c76d-4447-971b-54556fef5605)
+  3. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
+     > ![image](https://github.com/user-attachments/assets/578d57eb-8923-402b-91d5-11c9c4023829) \
+     > ![image](https://github.com/user-attachments/assets/49bb46f6-caf6-4f69-b007-bc1f33055cc9)
+  5. Примените изменения.
+     > ![image](https://github.com/user-attachments/assets/96138469-3eb5-4532-8602-4fa7b6e7d2ff)
+
 
 </details>
 
