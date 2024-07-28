@@ -348,4 +348,16 @@
 
   Используя инструкцию https://cloud.yandex.ru/ru/docs/vpc/operations/create-nat-gateway#tf_1, настройте для ваших ВМ nat_gateway. Для проверки уберите внешний IP адрес (nat=false) у ваших ВМ и проверьте доступ в интернет с ВМ, подключившись к ней через serial console. Для подключения предварительно через ssh измените пароль пользователя: ```sudo passwd ubuntu```
 
+  > Добавил новый инстанс \
+  > ![image](https://github.com/user-attachments/assets/d7f76a3a-40e2-4bc1-a020-65e7ddc70c85) \
+  > Вытащил сеть в отдельный файл (для удобства) и подключил к ней шлюз \
+  > ![image](https://github.com/user-attachments/assets/05b449a7-75ce-44c0-9a8e-8180e43c77c3) \
+  > Отключил ip внешнйи для машин. \
+  > ![image](https://github.com/user-attachments/assets/eea59623-fdf4-482f-b6b8-a70ed3e34f92) \
+  > ![image](https://github.com/user-attachments/assets/a2a789ce-cdb4-490d-9e2a-e3d8d3d01b1d) \
+  > всё пересобрал и получил доступ по серийной консоле (предвариетльн опошаманив над паролем для входа) \
+  > ![image](https://github.com/user-attachments/assets/86f9861a-1c16-422a-8117-8879d095aa6f) \
+  > ![image](https://github.com/user-attachments/assets/0e4bbfc3-c66f-4d45-9c25-28f8790ed91e) \
+  > пинги проходят, все изменения залетят в коммит) 
+
 </details>
