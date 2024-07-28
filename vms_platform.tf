@@ -27,7 +27,7 @@ variable "vm_web_family_os_name" {
 
 variable "vm_web_nat_is_enable" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "vm_web_name" {
@@ -63,7 +63,7 @@ variable "vm_db_name" {
 
 variable "vm_db_nat_is_enable" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "vm_resources" {
