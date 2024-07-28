@@ -50,6 +50,11 @@
 
   1. Изучите проект. В файле variables.tf объявлены переменные для Yandex provider.
   2. Создайте сервисный аккаунт и ключ. [service_account_key_file](https://terraform-provider.yandexcloud.net).
+     > ![image](https://github.com/user-attachments/assets/40e94795-8fd1-4ea1-a2a2-1bffd846b336)
+     > ![image](https://github.com/user-attachments/assets/9fbfbf1d-232a-441c-a61e-eb36a88a1c99)
+     > ![image](https://github.com/user-attachments/assets/d43fa9bb-e983-47ae-a6aa-29038fbed951)
+     > ![image](https://github.com/user-attachments/assets/529b720c-30d2-4e43-b11c-59a8afd06aa1)
+
   4. Сгенерируйте новый или используйте свой текущий ssh-ключ. Запишите его открытую(public) часть в переменную **vms_ssh_public_root_key**.
   5. Инициализируйте проект, выполните код. Исправьте намеренно допущенные синтаксические ошибки. Ищите внимательно, посимвольно. Ответьте, в чём заключается их суть.
   6. Подключитесь к консоли ВМ через ssh и выполните команду ``` curl ifconfig.me```.
