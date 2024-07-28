@@ -4,7 +4,7 @@ resource "yandex_vpc_network" "develop" {
 
 resource "yandex_vpc_subnet" "develop" {
   name           = var.vpc_name
-  zone           = var.default_zone
+  zone           = var.zones.ru_central1_b
   network_id     = yandex_vpc_network.develop.id
   v4_cidr_blocks = var.default_cidr
 }
@@ -16,12 +16,12 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "platform" {
   name        = "netology-develop-platform-web"
-  platform_id = "standart-v4"
+  platform_id = "standard-v3"
   
   resources {
-    cores         = 1
-    memory        = 1
-    core_fraction = 5
+    cores         = 2
+    memory        = 2
+    core_fraction = 20
   }
 
   boot_disk {

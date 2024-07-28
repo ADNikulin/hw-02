@@ -1,7 +1,28 @@
 ###cloud vars
+variable "zones" {
+  type        = object({
+    ru_central1_a = string,
+    ru_central1_b = string,
+    ru_central1_c = string,
+    ru_central1_d = string,
+  })
+  description = "https://yandex.cloud/ru/docs/overview/concepts/geo-scope"
+  default = {
+    ru_central1_a = "ru-central1-a",
+    ru_central1_b = "ru-central1-b",
+    ru_central1_c = "ru-central1-c",
+    ru_central1_d = "ru-central1-d"
+  }
+}
+
 variable "token" {
   type        = string
   description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
+}
+
+variable "path_to_authorized_keys" {
+  type        = string
+  description = "path to file keys; https://yandex.cloud/en/docs/iam/concepts/authorization/key"
 }
 
 variable "cloud_id" {
@@ -14,11 +35,6 @@ variable "folder_id" {
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
-variable "default_zone" {
-  type        = string
-  default     = "ru-central1-a"
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-}
 variable "default_cidr" {
   type        = list(string)
   default     = ["10.0.1.0/24"]
