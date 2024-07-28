@@ -143,6 +143,46 @@
   2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
   3. Примените изменения.
 
+  > Новые сеттинги для новой машины.
+  > ```
+  > ### db vm settings
+  > variable "vm_db_platform_settings" {
+  >   type = object({
+  >     core_count = number
+  >     memory_count = number
+  >     core_fraction = number
+  >     preemptible = bool
+  >     platform_id = string
+  >   })
+  >   default = {
+  >     core_count = 2
+  >     core_fraction = 20
+  >     memory_count = 4
+  >     preemptible = true
+  >     platform_id = "standard-v3"
+  >   }
+  >   description = "https://yandex.cloud/ru/docs/compute/concepts/vm-platforms"
+  > }
+  > 
+  > variable "vm_db_name" {
+  >   type = string
+  >   default = "netology-develop-platform-db"
+  >  description = "vm db name name"
+  > }
+  >   
+  > variable "vm_db_nat_is_enable" {
+  >   type = bool
+  >   default = true
+  > }
+  ```
+
+  Так же пришлось развернуть ешё подсеть новую, так что немного переписал базовые переменные: \
+  ![image](https://github.com/user-attachments/assets/2ba43714-adf8-4929-8f81-6cd918c8d21e) \
+  ![image](https://github.com/user-attachments/assets/ec994fdb-69be-4c1b-8bda-93749fe02c7f) \
+  Сделал 2е подсети в разных зонах и виртуальные машины \
+  ![image](https://github.com/user-attachments/assets/e01ee17f-a18d-4c55-8a9a-aef5603d8845) \
+  ![image](https://github.com/user-attachments/assets/8bb9341f-0bbc-4385-9ec7-a76c57f8c3e4)
+
 </details>
 
 ### Задание 4
