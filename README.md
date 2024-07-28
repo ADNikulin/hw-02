@@ -1,4 +1,4 @@
-# 19.2 Облачная инфраструктура. Terraform.  Никулин Александр
+![image](https://github.com/user-attachments/assets/c5ba95a1-ef71-4413-89df-acfb5b6a02b5)# 19.2 Облачная инфраструктура. Terraform.  Никулин Александр
 
 # Домашнее задание к занятию «Основы Terraform. Yandex Cloud»
 
@@ -223,44 +223,48 @@
 
   <summary>Детали</summary>
 
-  1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map(object).  
-  
-  ```
-  vms_resources = {
-    web={
-      cores=2
-      memory=2
-      core_fraction=5
-      hdd_size=10
-      hdd_type="network-hdd"
+  1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map(object).
+    ```
+    vms_resources = {
+      web={
+        cores=2
+        memory=2
+        core_fraction=5
+        hdd_size=10
+        hdd_type="network-hdd"
+        ...
+      },
+      db= {
+        cores=2
+        memory=4
+        core_fraction=20
+        hdd_size=10
+        hdd_type="network-ssd"
       ...
-    },
-    db= {
-      cores=2
-      memory=4
-      core_fraction=20
-      hdd_size=10
-      hdd_type="network-ssd"
-    ...
+      }
     }
-  }
-  ```
+    ```
+    > Собственно я +- сразу так начал делать... 
+    > На примере гит измененйи:
+    > ![image](https://github.com/user-attachments/assets/d1227e06-8cfc-402f-b356-e2ace508bd8f) \
+    > ![image](https://github.com/user-attachments/assets/927a1745-592c-45d9-a3fa-709d43edd835) \
+    > ![image](https://github.com/user-attachments/assets/c7065277-348c-45c1-b0dc-81ba6a377e21) \
+    > ![image](https://github.com/user-attachments/assets/af71dbc7-6443-4a28-b6ae-6a04d6aaf057) \
+    > ![image](https://github.com/user-attachments/assets/73a4da36-7103-4006-92eb-19de1a11ffc2)
 
-  3. Создайте и используйте отдельную map(object) переменную для блока metadata, она должна быть общая для всех ваших ВМ.
+  3. Создайте и используйте отдельную map(object) переменную для блока metadata, она должна быть общая для всех ваших ВМ. 
+    ```
+    пример из terraform.tfvars:
+    metadata = {
+      serial-port-enable = 1
+      ssh-keys       = "ubuntu:ssh-ed25519 AAAAC..."
+    }
+    ```  
+    > ![image](https://github.com/user-attachments/assets/1f376efb-1bcb-4235-899a-4af76d33f04a)
   
-
-  
-
-```
-  пример из terraform.tfvars:
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys       = "ubuntu:ssh-ed25519 AAAAC..."
-  }
-  ```  
-  
-  5. Найдите и закоментируйте все, более не используемые переменные проекта.
-  6. Проверьте terraform plan. Изменений быть не должно.
+  4. Найдите и закоментируйте все, более не используемые переменные проекта.
+  5. Проверьте terraform plan. Изменений быть не должно.
+     > ![image](https://github.com/user-attachments/assets/3c75ca16-4bdb-41c6-89d5-0e18c40b3da4)
 
 </details>
 ------
