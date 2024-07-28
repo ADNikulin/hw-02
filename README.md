@@ -50,22 +50,30 @@
 
   1. Изучите проект. В файле variables.tf объявлены переменные для Yandex provider.
   2. Создайте сервисный аккаунт и ключ. [service_account_key_file](https://terraform-provider.yandexcloud.net).
-     > ![image](https://github.com/user-attachments/assets/40e94795-8fd1-4ea1-a2a2-1bffd846b336)
-     > ![image](https://github.com/user-attachments/assets/9fbfbf1d-232a-441c-a61e-eb36a88a1c99)
-     > ![image](https://github.com/user-attachments/assets/d43fa9bb-e983-47ae-a6aa-29038fbed951)
+     > ![image](https://github.com/user-attachments/assets/40e94795-8fd1-4ea1-a2a2-1bffd846b336) \
+     > ![image](https://github.com/user-attachments/assets/9fbfbf1d-232a-441c-a61e-eb36a88a1c99) \
+     > ![image](https://github.com/user-attachments/assets/d43fa9bb-e983-47ae-a6aa-29038fbed951) \
      > ![image](https://github.com/user-attachments/assets/529b720c-30d2-4e43-b11c-59a8afd06aa1)
 
-  4. Сгенерируйте новый или используйте свой текущий ssh-ключ. Запишите его открытую(public) часть в переменную **vms_ssh_public_root_key**.
-  5. Инициализируйте проект, выполните код. Исправьте намеренно допущенные синтаксические ошибки. Ищите внимательно, посимвольно. Ответьте, в чём заключается их суть.
-  6. Подключитесь к консоли ВМ через ssh и выполните команду ``` curl ifconfig.me```.
-  Примечание: К OS ubuntu "out of a box, те из коробки" необходимо подключаться под пользователем ubuntu: ` `  ` "ssh ubuntu@vm_ip_address" `  `  ` . Предварительно убедитесь, что ваш ключ добавлен в ssh-агент: `  `  ` eval $(ssh-agent) && ssh-add `  ` ` Вы познакомитесь с тем как при создании ВМ создать своего пользователя в блоке metadata в следующей лекции.; 
+  3. Сгенерируйте новый или используйте свой текущий ssh-ключ. Запишите его открытую(public) часть в переменную **vms_ssh_public_root_key**.
+     > ![image](https://github.com/user-attachments/assets/4735d157-63bf-4834-84ef-eae382df4be5)
+  
+  4. Инициализируйте проект, выполните код. Исправьте намеренно допущенные синтаксические ошибки. Ищите внимательно, посимвольно. Ответьте, в чём заключается их суть.
+     > ![image](https://github.com/user-attachments/assets/d29fbf00-dca5-4c71-8b8e-da11ff0dcf2a) \
+     > https://yandex.cloud/ru/docs/compute/concepts/vm-platforms Нет такой платформы. Использую 3. \
+     > ![image](https://github.com/user-attachments/assets/0d7f76e1-cb34-469f-93c3-98efc981da2e) \
+     > Забыл про core_fraction, выставил на 20 и пару ядер + 2 гига памяти для 3й версии (https://yandex.cloud/ru/docs/compute/concepts/performance-levels) \
+     > создал - ![image](https://github.com/user-attachments/assets/909e2bb4-d72a-4ebe-8736-d170db39e823) \
+     > ![image](https://github.com/user-attachments/assets/e7996bde-e30d-47fe-9d90-99d5745eb65f)
 
-  8. Ответьте, как в процессе обучения могут пригодиться параметры ```preemptible = true``` и ```core_fraction=5``` в параметрах ВМ.
+  5. Подключитесь к консоли ВМ через ssh и выполните команду ``` curl ifconfig.me```.
+  Примечание: К OS ubuntu "out of a box, те из коробки" необходимо подключаться под пользователем ubuntu: ` `  ` "ssh ubuntu@vm_ip_address" `  `  ` . Предварительно убедитесь, что ваш ключ добавлен в ssh-агент: `  `  ` eval $(ssh-agent) && ssh-add `  ` ` Вы познакомитесь с тем как при создании ВМ создать своего пользователя в блоке metadata в следующей лекции.;
+     > ![image](https://github.com/user-attachments/assets/f2bad973-d1c5-4dd1-837c-1ad4a1d81b1f)
+  6. Ответьте, как в процессе обучения могут пригодиться параметры ```preemptible = true``` и ```core_fraction=5``` в параметрах ВМ.
   В качестве решения приложите:
-
-  + скриншот ЛК Yandex Cloud с созданной ВМ, где видно внешний ip-адрес; 
-  + скриншот консоли, curl должен отобразить тот же внешний ip-адрес; 
-  + ответы на вопросы.
+     > **core_fraction** - ограничения процессорного времени, для разных платформ они свои, так как я использую 3ю версию, то мы выделяем только 20 прцоентов времени \
+     > **preemptible** - прерывание, т.е. в принципе машину могут потушить, либо же больше дня она точн оне будет жить \
+     > Во всех случаях - экономия ресурсов в плане денег
 
 </details>
 
