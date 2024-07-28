@@ -32,7 +32,7 @@ variable "vm_web_nat_is_enable" {
 
 variable "vm_web_name" {
   type = string
-  default = "netology-develop-platform-web"
+  default = "web"
   description = "vm name name"
 }
 
@@ -57,7 +57,7 @@ variable "vm_db_platform_settings" {
 
 variable "vm_db_name" {
   type = string
-  default = "netology-develop-platform-db"
+  default = "db"
   description = "vm db name name"
 }
 
