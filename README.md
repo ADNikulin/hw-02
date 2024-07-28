@@ -192,8 +192,11 @@
   <summary>Детали</summary>
 
   1. Объявите в файле outputs.tf **один** output , содержащий: instance_name, external_ip, fqdn для каждой из ВМ в удобном лично для вас формате.(без хардкода!!!)
-  2. Примените изменения.
+     > ![image](https://github.com/user-attachments/assets/2fa39e3a-3366-458e-b606-a92875707b17)
+  3. Примените изменения.
+     > ![image](https://github.com/user-attachments/assets/45765ead-e17e-4b84-9a0a-e8fdae037145)
   В качестве решения приложите вывод значений ip-адресов команды ` `  ` terraform output `  ` ` .
+    > ![image](https://github.com/user-attachments/assets/4c3e10bd-8052-4179-9fd1-ede654c87478)
 
 </details>
 
