@@ -174,7 +174,7 @@
   >   type = bool
   >   default = true
   > }
-  ```
+  > ```
 
   Так же пришлось развернуть ешё подсеть новую, так что немного переписал базовые переменные: \
   ![image](https://github.com/user-attachments/assets/2ba43714-adf8-4929-8f81-6cd918c8d21e) \
