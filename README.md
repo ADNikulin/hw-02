@@ -1,16 +1,25 @@
-# Домашнее задание к занятию «Основы Terraform. Yandex Cloud»
-# hw-02
-https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
+# 19.2 Облачная инфраструктура. Terraform.  Никулин Александр
 
+# Домашнее задание к занятию «Основы Terraform. Yandex Cloud»
+
+<details>
+
+    <summary>Исходники задания</summary>
+
+    # hw-02
+    https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
+
+</detils>
 
 ### Цели задания
 
 1. Создать свои ресурсы в облаке Yandex Cloud с помощью Terraform.
 2. Освоить работу с переменными Terraform.
 
-
 ### Чек-лист готовности к домашнему заданию
+
 <details>
+
     <summary>Детали</summary>
 
     1. Зарегистрирован аккаунт в Yandex Cloud. Использован промокод на грант.
@@ -20,7 +29,9 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 </details>
 
 ### Задание 0
+
 <details>
+
     <summary>Детали</summary>
 
     1. Ознакомьтесь с [документацией к security-groups в Yandex Cloud](https://cloud.yandex.ru/docs/vpc/concepts/security-groups?from=int-console-help-center-or-nav). 
@@ -29,7 +40,9 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 </details>
 
 ### Задание 1
+
 <details>
+
     <summary>Детали</summary>
 
     В качестве ответа всегда полностью прикладывайте ваш terraform-код в git.
@@ -40,9 +53,9 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
     4. Сгенерируйте новый или используйте свой текущий ssh-ключ. Запишите его открытую(public) часть в переменную **vms_ssh_public_root_key**.
     5. Инициализируйте проект, выполните код. Исправьте намеренно допущенные синтаксические ошибки. Ищите внимательно, посимвольно. Ответьте, в чём заключается их суть.
     6. Подключитесь к консоли ВМ через ssh и выполните команду ``` curl ifconfig.me```.
-    Примечание: К OS ubuntu "out of a box, те из коробки" необходимо подключаться под пользователем ubuntu: ```"ssh ubuntu@vm_ip_address"```. Предварительно убедитесь, что ваш ключ добавлен в ssh-агент: ```eval $(ssh-agent) && ssh-add``` Вы познакомитесь с тем как при создании ВМ создать своего пользователя в блоке metadata в следующей лекции.;
-    8. Ответьте, как в процессе обучения могут пригодиться параметры ```preemptible = true``` и ```core_fraction=5``` в параметрах ВМ.
+    Примечание: К OS ubuntu "out of a box, те из коробки" необходимо подключаться под пользователем ubuntu: ` ` ` "ssh ubuntu@vm_ip_address" ` `  `. Предварительно убедитесь, что ваш ключ добавлен в ssh-агент: `  ` ` eval $(ssh-agent) && ssh-add ` ` ` Вы познакомитесь с тем как при создании ВМ создать своего пользователя в блоке metadata в следующей лекции.;
 
+    8. Ответьте, как в процессе обучения могут пригодиться параметры ```preemptible = true``` и ```core_fraction=5``` в параметрах ВМ.
     В качестве решения приложите:
 
     - скриншот ЛК Yandex Cloud с созданной ВМ, где видно внешний ip-адрес;
@@ -51,9 +64,10 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 
 </details>
 
-
 ### Задание 2
+
 <details>
+
     <summary>Детали</summary>
 
     1. Замените все хардкод-**значения** для ресурсов **yandex_compute_image** и **yandex_compute_instance** на **отдельные** переменные. К названиям переменных ВМ добавьте в начало префикс **vm_web_** .  Пример: **vm_web_name**.
@@ -62,9 +76,10 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 
 </details>
 
-
 ### Задание 3
+
 <details>
+
     <summary>Детали</summary>
 
     1. Создайте в корне проекта файл 'vms_platform.tf' . Перенесите в него все переменные первой ВМ.
@@ -73,22 +88,22 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 
 </details>
 
-
-
 ### Задание 4
+
 <details>
+
     <summary>Детали</summary>
 
     1. Объявите в файле outputs.tf **один** output , содержащий: instance_name, external_ip, fqdn для каждой из ВМ в удобном лично для вас формате.(без хардкода!!!)
     2. Примените изменения.
-
-    В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
+    В качестве решения приложите вывод значений ip-адресов команды ` ` ` terraform output ` ` `.
 
 </details>
 
-
 ### Задание 5
+
 <details>
+
     <summary>Детали</summary>
 
     1. В файле locals.tf опишите в **одном** local-блоке имя каждой ВМ, используйте интерполяцию ${..} с НЕСКОЛЬКИМИ переменными по примеру из лекции.
@@ -98,11 +113,15 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 </details>
 
 ### Задание 6
+
 <details>
+
     <summary>Детали</summary>
 
     1. Вместо использования трёх переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедините их в единую map-переменную **vms_resources** и  внутри неё конфиги обеих ВМ в виде вложенного map(object).  
-    ```
+    
+
+```
     пример из terraform.tfvars:
     vms_resources = {
         web={
@@ -123,8 +142,11 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
         }
     }
     ```
+
     3. Создайте и используйте отдельную map(object) переменную для блока metadata, она должна быть общая для всех ваших ВМ.
-    ```
+    
+
+```
     пример из terraform.tfvars:
     metadata = {
         serial-port-enable = 1
@@ -135,7 +157,6 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
     5. Найдите и закоментируйте все, более не используемые переменные проекта.
     6. Проверьте terraform plan. Изменений быть не должно.
 
-
 </details>
 ------
 
@@ -144,9 +165,10 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 **Настоятельно рекомендуем выполнять все задания со звёздочкой.**   
 Они помогут глубже разобраться в материале. Задания со звёздочкой дополнительные, не обязательные к выполнению и никак не повлияют на получение вами зачёта по этому домашнему заданию. 
 
-
 ------
+
 ### Задание 7*
+
 <details>
     <summary>Детали</summary>
 
@@ -166,37 +188,42 @@ https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
 ------
 
 ### Задание 8*
+
 <details>
     <summary>Детали</summary>
 
     1. Напишите и проверьте переменную test и полное описание ее type в соответствии со значением из terraform.tfvars:
     ```
+
     test = [
     {
         "dev1" = [
-        "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117",
-        "10.0.1.7",
+        "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117", 
+        "10.0.1.7", 
         ]
-    },
+    }, 
     {
         "dev2" = [
-        "ssh -o 'StrictHostKeyChecking=no' ubuntu@84.252.140.88",
-        "10.0.2.29",
+        "ssh -o 'StrictHostKeyChecking=no' ubuntu@84.252.140.88", 
+        "10.0.2.29", 
         ]
-    },
+    }, 
     {
         "prod1" = [
-        "ssh -o 'StrictHostKeyChecking=no' ubuntu@51.250.2.101",
-        "10.0.1.30",
+        "ssh -o 'StrictHostKeyChecking=no' ubuntu@51.250.2.101", 
+        "10.0.1.30", 
         ]
-    },
+    }, 
     ]
-    ```
+    
+
+```
     2. Напишите выражение в terraform console, которое позволит вычленить строку "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117" из этой переменной.
 
 </details>
 
 ### Задание 9*
+
 <details>
     <summary>Детали</summary>
 
