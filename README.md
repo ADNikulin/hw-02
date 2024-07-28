@@ -87,6 +87,50 @@
   2. Объявите нужные переменные в файле variables.tf, обязательно указывайте тип переменной. Заполните их **default** прежними значениями из main.tf. 
   3. Проверьте terraform plan. Изменений быть не должно. 
 
+  > Докинул новые переменные и их дефолтные значения
+  > ```
+  >   
+  > variable "vms_ssh_user" {
+  >   type        = string
+  >   default     = "ubuntu"
+  >   description = "ssh <vms_ssh_user>@any-ip"
+  > }
+  > 
+  > ### vm settings 
+  > variable "vm_web_family_os_name" {
+  >   type = string
+  >   default = "ubuntu-2004-lts"
+  >   description = "family os name"
+  > }
+  > 
+  > variable "vm_web_name" {
+  >   type = string
+  >   default = "netology-develop-platform-web"
+  >   description = "vm name name"
+  > }
+  > 
+  > variable "vm_web_platform_settings" {
+  >   type = object({
+  >     core_count = number
+  >     memory_count = number
+  >     core_fraction = number
+  >     preemptible = bool
+  >     platform_id = string
+  >   })
+  >   default = {
+  >     core_count = 2
+  >     core_fraction = 20
+  >     memory_count = 2
+  >     preemptible = true
+  >     platform_id = "standard-v3"
+  >   }
+  >   description = "https://yandex.cloud/ru/docs/compute/concepts/vm-platforms"
+  > }
+  > ```
+
+  > Применяем план выполнения: \
+  > ![image](https://github.com/user-attachments/assets/5446d012-48d0-4ef7-a98d-70f4000fd394)
+
 </details>
 
 ### Задание 3
