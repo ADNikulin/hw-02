@@ -286,13 +286,14 @@
   Изучите содержимое файла console.tf. Откройте terraform console, выполните следующие задания: 
 
   1. Напишите, какой командой можно отобразить **второй** элемент списка test_list.
+     > ![image](https://github.com/user-attachments/assets/03a25369-cfc5-4fe9-ba08-ebc0d634bc05)
   2. Найдите длину списка test_list с помощью функции length(<имя переменной>).
+     > ![image](https://github.com/user-attachments/assets/3e8ea0d3-2eaa-4fd7-89d5-0cc1fdc69ec5)
   3. Напишите, какой командой можно отобразить значение ключа admin из map test_map.
+     > ![image](https://github.com/user-attachments/assets/245a3826-53f3-4bbb-b865-a0bbb19bc541)
   4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.
-
-  **Примечание**: если не догадаетесь как вычленить слово "admin", погуглите: "terraform get keys of map"
-
-  В качестве решения предоставьте необходимые команды и их вывод.
+     > `"${local.test_map.admin} is ${keys(local.test_map)[0]} for ${local.test_list[2]} server based on OS ${local.servers.stage.image} with ${local.servers.stage.cpu}  vcpu, ${local.servers.stage.ram}  ram and ${length(local.servers.stage.disks)} virtual disks"` \
+     > ![image](https://github.com/user-attachments/assets/44cdbb29-1bb4-44cd-961c-1e886767f2a8)
 
 </details>
 
@@ -335,6 +336,8 @@
   
   ```
   2. Напишите выражение в terraform console, которое позволит вычленить строку "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117" из этой переменной.
+
+  > ![image](https://github.com/user-attachments/assets/9d841433-6f29-477c-8361-7c6cc058ba13)
 
 </details>
 
