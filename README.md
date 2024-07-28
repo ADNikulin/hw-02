@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c5ba95a1-ef71-4413-89df-acfb5b6a02b5)# 19.2 Облачная инфраструктура. Terraform.  Никулин Александр
+# 19.2 Облачная инфраструктура. Terraform.  Никулин Александр
 
 # Домашнее задание к занятию «Основы Terraform. Yandex Cloud»
 
